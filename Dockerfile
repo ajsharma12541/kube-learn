@@ -4,6 +4,7 @@ WORKDIR /app
 COPY . /app/kube-learn
 WORKDIR /app/kube-learn
 RUN mvn clean package
+CMD [""]
 
 FROM adoptopenjdk:11-jre-hotspot
 WORKDIR /app
