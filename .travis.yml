@@ -4,3 +4,6 @@ services:
 
 before_install:
   - docker build -t aksharma00711/kube-learning .
+
+script:
+  - docker run aksharma00711/kube-learning
