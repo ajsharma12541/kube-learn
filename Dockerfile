@@ -6,5 +6,6 @@ WORKDIR /app/kube-learn
 CMD ["mvn","clean","package"]
 
 FROM adoptopenjdk:11-jre-hotspot
-COPY --from=build /app/kube-learn/target/kube-learn-1.0-SNAPSHOT.jar /app/
+WORKDIR /app
+COPY --from=build /app/kube-learn/target/*.jar /app/
 #CMD ["java", "-cp", "/app/kube-learn-1.0-SNAPSHOT.jar", "Simple"]
