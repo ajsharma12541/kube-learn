@@ -1,19 +1,10 @@
 sudo: required
 
-language: java
-
 services:
   - docker
 
-#cache:
-#  directories:
-#    - "$HOME/.cache"
-
 before_install:
   - docker build -t aksharma00711/kube-learning .
-
-deploy:
-  skip_cleanup: true
 
 script:
   - docker run aksharma00711/kube-learning
