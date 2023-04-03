@@ -19,3 +19,8 @@ jobs:
       - run: |
           echo "Infra Environment : ${{ github.event.inputs.Environment }}"
           echo "Branch : ${{ github.ref }}"
+      
+      - name: Checkout code by tag
+        uses: actions/checkout@v2
+        with:
+          ref: ${{ github.ref }}
