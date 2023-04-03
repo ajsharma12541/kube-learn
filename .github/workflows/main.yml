@@ -3,24 +3,19 @@ name: Event Driven Workflow Test
 on:
   workflow_dispatch:
     inputs:
-      InfraEnvironment:
-        description: 'Define release environment name'
+      Environment:
+        description: 'Deployment Environment'
         required: true
-        default: 'cldy'
-      ServiceEnvironment:
-        description: 'Define release environment name'
-        required: true
-        default: 'development'
-      Branch:
-        description: 'Define branch name'
-        required: true
-        default: 'git-hub'
+        default: 'staging'
+        type: choice
+        options:
+          - staging
+          - production
 
 jobs:
   printInputs:
     runs-on: self-hosted
     steps:
       - run: |
-          echo "Infra Environment : ${{ github.event.inputs.InfraEnvironment }}"
-          echo "Service Environment : ${{ github.event.inputs.ServiceEnvironment }}"
-          echo "Release Branch : ${{ github.event.inputs.Branch }}"
+          echo "Infra Environment : ${{ github.event.inputs.Environment }}"
+          echo "Branch : ${{ github.ref }}"
