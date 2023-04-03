@@ -6,7 +6,7 @@ on:
       Environment:
         description: 'Deployment Environment'
         required: true
-        default: 'staging'
+        default: 'development'
         type: choice
         options:
           - staging
