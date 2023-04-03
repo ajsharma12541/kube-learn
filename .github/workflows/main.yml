@@ -14,7 +14,7 @@ on:
 
 jobs:
   printInputs:
-    runs-on: self-hosted
+    runs-on: ubuntu-latest
     steps:
       - run: |
           echo "Infra Environment : ${{ github.event.inputs.Environment }}"
