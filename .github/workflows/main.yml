@@ -23,4 +23,4 @@ jobs:
       - name: Checkout code by tag
         uses: actions/checkout@v2
         with:
-          ref: ${{ github.ref }}
+          ref: ${{ github.ref_name }}
