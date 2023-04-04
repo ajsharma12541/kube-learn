@@ -21,11 +21,15 @@ jobs:
           echo "Infra Environment : ${{ github.event.inputs.Environment }}"
           echo "Branch : ${{ github.ref }}"
 
+      - name: Setup GitHub Code Checkout
+        uses: actions/checkout@master
+        with:
+          fetch-depth: 0
+
       - name: Checkout Staging Code
         uses: actions/checkout@v2
         with: 
-         ref : 'master'
-         fetch-depth: 0
+         ref : 'main'
         if: ${{ (inputs.Environment == 'staging') }}
       
       - name: Checkout Production Code
