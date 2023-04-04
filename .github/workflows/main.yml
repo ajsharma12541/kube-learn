@@ -25,6 +25,7 @@ jobs:
         uses: actions/checkout@v2
         with: 
          ref : 'master'
+         fetch-depth: 0
         if: ${{ (inputs.Environment == 'staging') }}
       
       - name: Checkout Production Code
