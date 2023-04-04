@@ -16,11 +16,13 @@ jobs:
   printInputs:
     runs-on: ubuntu-latest
     steps:
-      - run: |
-          echo "Infra Environment : ${{ github.event.inputs.Environment }}"
-          echo "Branch : ${{ github.ref }}"
       
       - name: Checkout code by tag
         uses: actions/checkout@v2
         with:
-          ref: ${{ github.ref_name }}
+          ref: ${{ github.ref }}
+        if: ${{ startsWith(github.ref, 'refs/tags/releases/') }}      
+      
+      - run: |
+          echo "Infra Environment : ${{ github.event.inputs.Environment }}"
+          echo "Branch : ${{ github.ref }}"
