@@ -21,7 +21,7 @@ jobs:
         uses: actions/checkout@v2
         with:
           ref: ${{ github.ref }}
-        if: ${{ startsWith(github.ref, 'refs/tags/releases/') }}      
+        if: ${{ startsWith(github.ref, 'refs/tags/') }}      
       
       - run: |
           echo "Infra Environment : ${{ github.event.inputs.Environment }}"
