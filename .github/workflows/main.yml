@@ -16,18 +16,19 @@ jobs:
   printInputs:
     runs-on: ubuntu-latest
     steps:
-      
-      - name: Checkout code by tag
-        uses: actions/checkout@v2
-        with:
-           fetch-depth: 0
-        if: ${{ (inputs.Environment == 'production') }}
-      
+
       - run: |
           echo "Infra Environment : ${{ github.event.inputs.Environment }}"
           echo "Branch : ${{ github.ref }}"
+
+      - name: Checkout Staging Code
+        uses: actions/checkout@v2
+        with: 
+         ref : 'master'
+        if: ${{ (inputs.Environment == 'staging') }}
       
-      - name: Checkout latest release tag
+      - name: Checkout Production Code
         run: |
           LATEST_TAG=$(git describe --tags `git rev-list --tags --max-count=1`)
           git checkout $LATEST_TAG
+        if: ${{ (inputs.Environment == 'production') }}
