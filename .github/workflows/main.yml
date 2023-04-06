@@ -38,3 +38,7 @@ jobs:
           git checkout $LATEST_TAG
           echo "Branch : ${{ github.ref }}"
         if: ${{ (inputs.Environment == 'production') }}
+
+      - name: Ref Check
+        run: |
+          echo "Branch : ${{ github.ref }}"
