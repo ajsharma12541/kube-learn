@@ -36,4 +36,5 @@ jobs:
         run: |
           LATEST_TAG=$(git describe --tags `git rev-list --tags --max-count=1`)
           git checkout $LATEST_TAG
+          echo "Branch : ${{ github.ref }}"
         if: ${{ (inputs.Environment == 'production') }}
